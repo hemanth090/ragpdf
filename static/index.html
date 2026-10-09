@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ragpdf</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <span class="logo">ragpdf</span>
+  <span class="meta" id="meta"></span>
+  <label class="upload" title="Index a new PDF">+ PDF<input type="file" id="file" accept="application/pdf,.pdf" hidden></label>
+  <span class="status-dot" id="dot" title="index status"></span>
+</header>
+<main>
+  <form id="f" autocomplete="off">
+    <div class="row">
+      <input id="q" type="text" placeholder="Ask about the documents…" maxlength="500" aria-label="Question">
+      <select id="doc" aria-label="Document"><option value="">All</option></select>
+      <button type="submit" id="go">Ask</button>
+    </div>
+  </form>
+  <p id="prog" hidden></p>
+  <p id="job" hidden></p>
+  <article id="out" hidden>
+    <p id="ans"></p>
+    <p id="cite"></p>
+    <details id="evd"><summary id="evdsum">Evidence</summary><div id="thumbs"></div></details>
+  </article>
+  <p id="err" hidden></p>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

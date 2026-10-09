@@ -1,0 +1,24 @@
+services:
+  ragpdf:
+    build: .
+    ports:
+      - "${PORT:-8787}:8787"
+    env_file:
+      - .env
+    environment:
+      RAGPDF_CACHE: /app/cache
+      HF_HOME: /app/cache/hf
+      SENTENCE_TRANSFORMERS_HOME: /app/cache/st
+    volumes:
+      - ragpdf-cache:/app/cache
+      - ./uploads:/app/uploads
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8787/api/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 60s
+      retries: 3
+
+volumes:
+  ragpdf-cache:

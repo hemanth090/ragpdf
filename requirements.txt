@@ -1,0 +1,10 @@
+pypdf
+qdrant-client
+
+# --- embeddings: install what you use ---
+sentence-transformers      # RAGPDF_PROVIDER=local (default). Also needs torch: https://pytorch.org/get-started/locally/
+einops                     # only for RAGPDF_LOCAL_MODEL=nomic
+# Ollama needs nothing from pip: install the app, then `ollama pull bge-m3`
+google-genai               # RAGPDF_PROVIDER=gemini, and the Gemini VLM that writes the final answer
+
+# system tools (not pip): poppler-utils  ->  pdftotext, pdftoppm
